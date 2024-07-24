@@ -1,8 +1,8 @@
-import { connect } from "@/dbConfig/dbConfig";
+import { connect } from "@/dbconfig/dbconfig";
 import User from "@/models/userModel";
 import { NextRequest, NextResponse } from "next/server";
 import bcryptjs from "bcryptjs";
-import { sendEmail } from "@/helpers/mailer";
+//import { sendEmail } from "@/helpers/mailer";
 
 connect();
 
@@ -41,7 +41,7 @@ export async function POST(request: NextRequest) {
     //savedUser will include all the fields provided in the schema, including any defaults and auto-generated fields.
     //send verification email
 
-    await sendEmail({ email, emailType: "VERIFY", userId: savedUser._id });
+    //await sendEmail({ email, emailType: "VERIFY", userId: savedUser._id });
 
     return NextResponse.json({
       message: "User created successfully",
